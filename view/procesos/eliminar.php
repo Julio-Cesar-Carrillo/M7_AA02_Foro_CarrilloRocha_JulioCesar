@@ -13,7 +13,16 @@ try {
     $stmt = $pdo->prepare("DELETE FROM tbl_preguntas WHERE id_preg =:id_preg");
     $stmt->bindParam(':id_preg', $id, PDO::PARAM_INT);
     $stmt->execute();
-    header('location:../index.php');
+?>
+    <form action="../index.php" method="POST" name="formulario">
+        <input type="hidden" name="mispreguntas" value="<?php echo htmlspecialchars($_POST['mispreguntas']); ?>">
+        <input type="hidden" name="user" value="<?php echo htmlspecialchars($_POST['user']); ?>">
+        <input type="hidden" name="pregunta" value="<?php echo htmlspecialchars($_POST['pregunta']); ?>">
+    </form>
+    <script language="JavaScript">
+        document.formulario.submit();
+    </script>
+<?php
 } catch (PDOException $e) {
     echo "conexion fallida" . $e->getMessage();
 }

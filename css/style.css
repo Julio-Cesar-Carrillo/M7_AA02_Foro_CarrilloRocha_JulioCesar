@@ -1,0 +1,454 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* Permite que los elementos se acomoden en varias filas en pantallas pequeñas */
+}
+
+/* Contenedor del header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #0078d4;
+    color: white;
+    flex-wrap: wrap;
+    /* Permite que los elementos en el header se acomoden en pantallas pequeñas */
+}
+
+/* Logo */
+header .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Formulario y enlaces en el header */
+.header-forms {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    /* Permite que los formularios se acomoden en pantallas pequeñas */
+}
+
+/* Estilo para los inputs */
+.header-forms input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    color: #333;
+}
+
+/* Botón para "borrar filtros" */
+.header-forms button {
+    padding: 5px 10px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.header-forms button:hover {
+    background-color: #b71c1c;
+}
+
+/* Botón (como enlace) */
+.header-forms a {
+    padding: 5px 10px;
+    background-color: #d32f2f;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.header-forms a:hover {
+    background-color: #b71c1c;
+}
+
+/* Usuario y enlace en la misma línea */
+header>div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Estilo para el nombre del usuario */
+header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilo para el enlace de "Salir" */
+header>div a {
+    padding: 5px 10px;
+    background-color: #d32f2f;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+header>div a:hover {
+    background-color: #b71c1c;
+}
+
+/* Sidebar */
+.form-column {
+    flex: 1;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-column a {
+    display: block;
+    padding: 10px 15px;
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.form-column a:hover {
+    background-color: #005ea6;
+}
+
+.form-column form {
+    margin-top: 15px;
+}
+
+.form-column label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-column input[type="checkbox"] {
+    margin-left: 5px;
+}
+
+/* Questions Section */
+.questions-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Preguntas y Respuestas */
+.preguntas-respuestas {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para preguntas */
+.pregunta {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid #0078d4;
+}
+
+.pregunta h1 {
+    font-size: 20px;
+    color: #005ea6;
+    margin: 0 0 10px 0;
+}
+
+.pregunta p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Contenedor de la pregunta y sus detalles */
+.pregunta-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de la fecha y el nombre del autor */
+.pregunta-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pregunta-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Contenedor para los botones */
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.button-group form {
+    margin: 0;
+}
+
+/* Respuestas */
+.respuestas {
+    background-color: #e7f3fe;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.respuesta {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.respuesta p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.respuesta-info {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    font-size: 12px;
+    color: #555;
+}
+
+.respuesta-info p {
+    margin: 0;
+}
+
+/* Formularios de respuesta */
+form {
+    margin-top: 15px;
+}
+
+form button {
+    background-color: #388E3C;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #2E7D32;
+}
+
+/* Editor */
+textarea#editor {
+    width: 100%;
+    /* Hace que el textarea ocupe todo el ancho disponible */
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: vertical;
+    /* Permite redimensionar solo la altura */
+    overflow: auto;
+    /* Muestra las barras de desplazamiento si el contenido es mayor que el área visible */
+    box-sizing: border-box;
+    /* Asegura que el padding y el borde estén incluidos en el tamaño total del textarea */
+    min-height: 100px;
+    /* Establece una altura mínima para el textarea */
+}
+
+/* Modal */
+#modalFormulario,
+#modalEditarPregunta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Estilo para el contenedor de los botones */
+.modal-content form {
+    display: flex;
+    /* Usamos flexbox para alinearlos en una fila */
+    justify-content: space-between;
+    /* Distribuye los botones de manera equitativa */
+    gap: 10px;
+    /* Espacio entre los botones */
+}
+
+/* Estilo para los botones */
+.modal-content button {
+    flex: 1;
+    /* Hace que los botones ocupen el mismo espacio */
+    padding: 10px;
+    /* Espaciado interno */
+    font-size: 16px;
+    /* Tamaño de texto */
+    border: none;
+    /* Sin borde */
+    cursor: pointer;
+    /* Aparece el puntero al pasar el ratón */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    /* Transición suave al pasar el ratón */
+}
+
+/* Estilo para el botón de Confirmar */
+.modal-content button[type="submit"] {
+    background-color: #4CAF50;
+    /* Verde para el botón de confirmar */
+    color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #45a049;
+    /* Verde más oscuro al pasar el ratón */
+}
+
+/* Estilo para el botón de Eliminar */
+.modal-content button[type="button"] {
+    background-color: #d32f2f;
+    /* Rojo para el botón de eliminar */
+    color: white;
+}
+
+.modal-content button[type="button"]:hover {
+    background-color: #b71c1c;
+    /* Rojo más oscuro al pasar el ratón */
+}
+
+
+/* Formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    /* Permitir ajuste vertical */
+}
+
+/* Botones */
+button {
+    padding: 10px 15px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #005ea6;
+}
+
+button[type="button"] {
+    background-color: #d32f2f;
+}
+
+button[type="button"]:hover {
+    background-color: #b71c1c;
+}
+
+.eliminar-btn {
+    background-color: #d32f2f;
+    /* Rojo */
+    color: white;
+    /* Texto blanco */
+    border: none;
+    /* Sin borde */
+    padding: 10px 20px;
+    /* Espaciado interior */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    cursor: pointer;
+    /* Manito al pasar el cursor */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    transition: background-color 0.3s ease;
+    /* Transición suave en el hover */
+}
+
+.eliminar-btn:hover {
+    background-color: #b71c1c;
+    /* Rojo más oscuro cuando se pasa el cursor */
+}
+
+.eliminar-btn:focus {
+    outline: none;
+    /* Elimina el contorno cuando está en foco */
+}

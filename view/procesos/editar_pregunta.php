@@ -2,15 +2,18 @@
 
 include './conexion.php';
 session_start();
-$id = (int)$_SESSION['id_user'];
+
+$id_usuario = (int)$_SESSION['id_user'];
+$id_pregunta = (int)$_POST['id_pregunta'];
 $titulo_preg = htmlspecialchars($_POST['titulo_preg']);
 $text_preg = htmlspecialchars($_POST['text_preg']);
 
 try {
-    $sql = $pdo->prepare("INSERT INTO tbl_preguntas (titulo_preg, text_preg, usuario_preg,fecha_preg) VALUES (:titulo_preg, :text_preg, :usuario_preg,NOW())");
+    $sql = $pdo->prepare("UPDATE tbl_preguntas SET titulo_preg = :titulo_preg, text_preg = :text_preg, fecha_preg = NOW()
+        WHERE id_preg = :id_preg ");
     $sql->bindParam(":titulo_preg", $titulo_preg, PDO::PARAM_STR_CHAR);
     $sql->bindParam(":text_preg", $text_preg, PDO::PARAM_STR_CHAR);
-    $sql->bindParam(":usuario_preg", $id, PDO::PARAM_INT);
+    $sql->bindParam(":id_preg", $id_pregunta, PDO::PARAM_INT);
     $sql->execute();
 ?>
     <form action="../index.php" method="POST" name="formulario">
@@ -23,5 +26,6 @@ try {
     </script>
 <?php
 } catch (PDOException $e) {
-    echo "conexion fallida" . $e->getMessage();
+    // Manejo de errores
+    echo "Error al actualizar la pregunta: " . $e->getMessage();
 }

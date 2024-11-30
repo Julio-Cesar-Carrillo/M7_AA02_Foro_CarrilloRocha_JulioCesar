@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 
 <body>
     <form action="./procesos/login.php" method="post">
         <div>
             <label for="username">username</label>
-            <input type="text" name="username" value="Usuario dos">
+            <input type="text" name="username" value="julio">
         </div>
         <div>
             <label for="pwd">password</label>
