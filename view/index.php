@@ -14,6 +14,9 @@ include './procesos/conexion.php';
     <link rel="shortcut icon" href="../img/logo.png">
     <title>CodeCraft</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.7/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.7/dist/sweetalert2.min.css">
+
 </head>
 
 <body>
@@ -170,7 +173,7 @@ include './procesos/conexion.php';
                                         <div class="button-group">
                                             <button class="abrirModalEditar" data-id="<?php echo (int)$pregunta['id_preg']; ?>" data-titulo="<?php echo htmlspecialchars($pregunta['titulo_preg']); ?>" data-texto="<?php echo htmlspecialchars($pregunta['text_preg']); ?>">Editar</button>
 
-                                            <form action="./procesos/eliminar.php" method="post">
+                                            <form action="./procesos/eliminar.php" method="post" id="formEliminar">
                                                 <input type="hidden" name="mispreguntas" value="<?php if (!empty($_POST['mispreguntas'])) {
                                                                                                     echo "1";
                                                                                                 } ?>">
@@ -181,7 +184,7 @@ include './procesos/conexion.php';
                                                                                                 echo htmlspecialchars(trim($_POST['pregunta']));
                                                                                             } ?>">
                                                 <input type="hidden" name="id" value="<?php echo (int)$pregunta['id_preg']; ?>">
-                                                <button class="eliminar-btn">Eliminar</button>
+                                                <button type="button" class="btneliminar" data-titulo="<?php echo htmlspecialchars($pregunta['titulo_preg']); ?>">Eliminar</button>
                                             </form>
                                         </div>
                                 <?php
@@ -296,6 +299,7 @@ include './procesos/conexion.php';
 
 </body>
 <script src="./formularios.js"></script>
+<!-- SweetAlert2 JS -->
 
 
 </html>

@@ -67,3 +67,26 @@ document.querySelectorAll('.abrirModalEditar').forEach(button => {
 document.getElementById('cerrarModalEditar').addEventListener('click', function () {
     document.getElementById('modalEditarPregunta').style.display = 'none';
 });
+
+
+document.querySelectorAll('.btneliminar').forEach(function (button) {
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tituloPregunta = this.getAttribute('data-titulo');
+        Swal.fire({
+            title: '¿Estás seguro de eliminar?',
+            text: tituloPregunta,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var form = this.closest('form');
+                form.submit();
+            }
+        });
+    });
+});
