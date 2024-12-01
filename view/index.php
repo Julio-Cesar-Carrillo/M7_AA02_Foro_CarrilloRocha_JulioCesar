@@ -42,7 +42,7 @@ include './procesos/conexion.php';
             <?php
             if (isset($_SESSION['id_user'])) {
                 echo '<h3>' . $_SESSION["nick_user"] . '</h3>';
-                echo '<a href="./procesos/logout.php" type="button" class="btneliminar">Salir</a>';
+                echo '<a href="./procesos/logout.php" >Salir</a>';
             } else {
                 echo '<a href="../index.php">Iniciar sesion</a>';
                 echo '<a href="../registro.php">Regitrarse</a>';
