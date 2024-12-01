@@ -151,6 +151,17 @@ header>div a:hover {
     margin-left: 5px;
 }
 
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente al centro */
+}
+
+label {
+    margin-right: 10px;
+    /* Espacio entre el label y el checkbox */
+}
+
 /* Questions Section */
 .questions-column {
     flex: 2;
@@ -341,6 +352,7 @@ textarea#editor {
     transition: background-color 0.3s ease;
     /* Transición suave al pasar el ratón */
 }
+
 
 /* Estilo para el botón de Confirmar */
 .modal-content button[type="submit"] {

@@ -57,10 +57,12 @@ include './procesos/conexion.php';
             ?>
                 <button id="mostrarFormulario">Hacer una pregunta</button>
                 <form action="./index.php" method="post" id="formmispreguntas">
-                    <label for="mispreguntasCheckbox">Mis preguntas</label>
-                    <input type="checkbox" name="mispreguntas" id="mispreguntasCheckbox" <?php if (!empty($_POST['mispreguntas'])) {
-                                                                                                echo "checked";
-                                                                                            } ?>>
+                    <div class="checkbox-container">
+                        <label for="mispreguntasCheckbox">Mis preguntas</label>
+                        <input type="checkbox" name="mispreguntas" id="mispreguntasCheckbox" <?php if (!empty($_POST['mispreguntas'])) {
+                                                                                                    echo "checked";
+                                                                                                } ?>>
+                    </div>
                     <input type="hidden" name="user" value="<?php if (!empty($_POST['user'])) {
                                                                 echo htmlspecialchars(trim($_POST['user']));
                                                             } ?>">
