@@ -42,7 +42,7 @@ include './procesos/conexion.php';
             <?php
             if (isset($_SESSION['id_user'])) {
                 echo '<h3>' . $_SESSION["nick_user"] . '</h3>';
-                echo '<a href="./procesos/logout.php">Salir</a>';
+                echo '<a href="./procesos/logout.php" type="button" class="btneliminar">Salir</a>';
             } else {
                 echo '<a href="../index.php">Iniciar sesion</a>';
                 echo '<a href="../registro.php">Regitrarse</a>';
@@ -74,17 +74,19 @@ include './procesos/conexion.php';
             }
             ?>
             <div>
-                <p>¿Buscas a alguien?</p>
                 <form action="./index.php" method="post" id="buscarusuario">
-                    <input type="hidden" name="mispreguntas" value="<?php if (!empty($_POST['mispreguntas'])) {
-                                                                        echo "1";
+                    <div class="buscarusu">
+                        <label>¿Buscas a alguien?</label>
+                        <input type="hidden" name="mispreguntas" value="<?php if (!empty($_POST['mispreguntas'])) {
+                                                                            echo "1";
+                                                                        } ?>">
+                        <input type="text" name="user" id="inputUser" value="<?php if (!empty($_POST['user'])) {
+                                                                                    echo htmlspecialchars(trim($_POST['user']));
+                                                                                } ?>" placeholder="Usuario">
+                        <input type="hidden" name="pregunta" value="<?php if (!empty($_POST['pregunta'])) {
+                                                                        echo htmlspecialchars(trim($_POST['pregunta']));
                                                                     } ?>">
-                    <input type="text" name="user" id="inputUser" value="<?php if (!empty($_POST['user'])) {
-                                                                                echo htmlspecialchars(trim($_POST['user']));
-                                                                            } ?>" placeholder="Usuario">
-                    <input type="hidden" name="pregunta" value="<?php if (!empty($_POST['pregunta'])) {
-                                                                    echo htmlspecialchars(trim($_POST['pregunta']));
-                                                                } ?>">
+                    </div>
                 </form>
                 <?php
                 $sql = "SELECT nick_user FROM tbl_usuarios
@@ -237,8 +239,12 @@ include './procesos/conexion.php';
                                         <textarea id="editor" name="resp_resp" placeholder="Escribe aquí..."></textarea>
                                         <button>Responder</button>
                                     </form>
-                            <?php
+                                <?php
                                 }
+                            } else {
+                                ?>
+                                <a href="../index.php" type="button">Inicia sesion para responder</a>
+                            <?php
                             }
                             ?>
                         </div>
