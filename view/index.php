@@ -124,7 +124,7 @@ include './procesos/conexion.php';
             <?php
             $sql = "SELECT p.*, u.nick_user FROM tbl_preguntas p 
                 INNER JOIN tbl_usuarios u ON p.usuario_preg = u.id_user 
-                WHERE 1=1";
+                WHERE 1=1 ";
             // if (!empty($_POST['user'])) {
             //     $sql .= " AND u.nick_user LIKE :filtrouser";
             // }
@@ -152,7 +152,6 @@ include './procesos/conexion.php';
                     $sql->bindParam(":usuario_preg", $filtromispreguntas, PDO::PARAM_INT);
                 }
             }
-
             $sql->execute();
             $preguntas = $sql->fetchAll(PDO::FETCH_ASSOC);
             foreach ($preguntas as $pregunta) {
@@ -233,11 +232,12 @@ include './procesos/conexion.php';
                             if (isset($_SESSION['id_user'])) {
                                 if ($id != $pregunta['usuario_preg']) {
                             ?>
-                                    <form action="./procesos/respuesta.php" method="post">
+                                    <form id="frmresponder" action="./procesos/respuesta.php" method="post">
                                         <input type="hidden" name="preg_resp" value="<?php echo (int)$pregunta['id_preg'] ?>">
                                         <input type="hidden" name="usuario_resp" value="<?php echo (int)$_SESSION['id_user']; ?>">
                                         <textarea id="editor" name="resp_resp" placeholder="Escribe aquí..."></textarea>
-                                        <button>Responder</button>
+                                        <span id="max-message" style="color: red; font-size: 0.9rem; display: none;">Has alcanzado el límite de 500 caracteres.</span>
+                                        <button type="submit">Responder</button>
                                     </form>
                                 <?php
                                 }
@@ -270,10 +270,15 @@ include './procesos/conexion.php';
                 <input type="hidden" name="pregunta" value="<?php if (!empty($_POST['pregunta'])) {
                                                                 echo htmlspecialchars(trim($_POST['pregunta']));
                                                             } ?>">
+
                 <label for="titulo_preg">Título:</label>
-                <input type="text" name="titulo_preg" id="titulo" placeholder="Título de tu pregunta">
+                <input type="text" name="titulo_preg" id="tituloPregunta" placeholder="Título de tu pregunta">
+                <span id="errorTitulo" style="color: red; font-size: 0.9rem; display: none;">El título no puede estar vacío y debe tener menos de 100 caracteres.</span>
+
                 <label for="text_preg">Pregunta:</label>
-                <textarea name="text_preg" id="texto" placeholder="Escribe los detalles de tu pregunta"></textarea>
+                <textarea name="text_preg" id="textoPregunta" placeholder="Escribe los detalles de tu pregunta"></textarea>
+                <span id="errorePregunta" style="color: red; font-size: 0.9rem; display: none;">Has alcanzado el límite de 500 caracteres.</span>
+
                 <button type="submit">Confirmar</button>
                 <button type="button" id="cerrarModal">Cancelar</button>
             </form>
@@ -297,8 +302,10 @@ include './procesos/conexion.php';
                 <input type="hidden" name="id_pregunta" id="idPregunta">
                 <label for="titulo_preg">Título:</label>
                 <input type="text" name="titulo_preg" id="tituloEditar">
+                <span id="errorTituloPregunta" style="color: red; font-size: 0.9rem; display: none;">El título no puede estar vacío y debe tener menos de 100 caracteres.</span>
                 <label for="text_preg">Pregunta:</label>
                 <textarea name="text_preg" id="textoEditar"></textarea>
+                <span id="erroreditarpregunta" style="color: red; font-size: 0.9rem; display: none;">Has alcanzado el límite de 500 caracteres.</span>
                 <button type="submit">Confirmar</button>
                 <button type="button" id="cerrarModalEditar">Cancelar</button>
             </form>

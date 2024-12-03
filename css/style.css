@@ -146,6 +146,11 @@ header>div a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.respuesta p {
+    margin: 0;
+    font-size: 14px;
+}
+
 .pregunta {
     border-left: 4px solid #0078d4;
 }
@@ -160,15 +165,36 @@ header>div a:hover {
 .respuesta-info {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-    font-size: 14px;
+    gap: 10px;
+    font-size: 12px;
+    color: #777;
+    flex-wrap: wrap;
+    /* Permite que los elementos se ajusten cuando sea necesario */
+}
+
+.respuesta-info p {
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Agrega puntos suspensivos si el texto es muy largo */
 }
 
 .respuesta {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+    /* Evita que el texto se salga del contenedor */
+    word-wrap: break-word;
+    /* Asegura que los textos largos se ajusten */
+    word-break: break-word;
+    /* Rompe las palabras largas para evitar desbordamiento */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Forms and Buttons */
@@ -248,4 +274,102 @@ button[type="button"]:hover {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-forms {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .form-column {
+        max-width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .questions-column {
+        flex: 1;
+        max-width: 100%;
+    }
+
+    .pregunta h1 {
+        font-size: 18px;
+    }
+
+    .pregunta-details,
+    .respuesta-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pregunta-info {
+        font-size: 12px;
+    }
+
+    textarea,
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    #modalFormulario,
+    #modalEditarPregunta {
+        width: 100%;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h3 {
+        font-size: 16px;
+    }
+
+    .header-forms input[type="text"],
+    .header-forms button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .form-column {
+        padding: 10px;
+    }
+
+    .questions-column {
+        padding: 0 10px;
+    }
+
+    .pregunta h1 {
+        font-size: 16px;
+    }
+
+    .pregunta-details {
+        font-size: 12px;
+    }
+
+    button {
+        padding: 10px;
+    }
 }

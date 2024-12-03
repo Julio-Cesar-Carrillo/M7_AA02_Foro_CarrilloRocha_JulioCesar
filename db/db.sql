@@ -21,8 +21,8 @@ CREATE TABLE tbl_usuarios(
 
 CREATE TABLE tbl_preguntas(
     id_preg INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    titulo_preg VARCHAR(50) NOT NULL,
-    text_preg VARCHAR(100) NOT NULL,
+    titulo_preg VARCHAR(100) NOT NULL,
+    text_preg VARCHAR(500) NOT NULL,
     usuario_preg INT NOT NULL,
     fecha_preg DATE NOT NULL,
     FOREIGN KEY (usuario_preg) REFERENCES tbl_usuarios(id_user)
@@ -31,7 +31,7 @@ CREATE TABLE tbl_preguntas(
 CREATE TABLE tbl_respuestas(
     id_resp INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     preg_resp INT NOT NULL,
-    resp_resp VARCHAR(100) NOT NULL,
+    resp_resp VARCHAR(500) NOT NULL,
     usuario_resp INT NOT NULL,
     fecha_resp DATE NOT NULL,
     FOREIGN KEY (preg_resp) REFERENCES tbl_preguntas(id_preg),
